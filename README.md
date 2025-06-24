@@ -1,37 +1,37 @@
 
 # Inventory Management System
 
-Welcome to the **Inventory Management System** — a comprehensive C++ project designed to demonstrate two robust approaches for managing inventory data efficiently and effectively.
+Welcome to the **Inventory Management System** — a comprehensive C++ project demonstrating two robust approaches for managing inventory data with a Win32 GUI, file I/O, database integration, and unit testing.
 
 ---
 
 ## Overview
 
-This repository contains two distinct implementations of an inventory management system:
+This repository contains two distinct implementations:
 
 ### 1. File Handler Based Inventory Management
 
-- Utilizes traditional file I/O operations to store and manage inventory data in text files.
-- Implements core functionalities such as adding, updating, deleting, and searching inventory items.
-- Features a Win32 API-based graphical user interface (GUI) for seamless user interaction.
-- Ideal for learning purposes and small-scale applications where simplicity and quick setup are priorities.
+- Uses standard file I/O to store and manage inventory data in text files.
+- Implements adding, updating, deleting, and searching inventory items.
+- Features a Win32 API graphical user interface (GUI).
+- Ideal for educational use and small-scale applications.
 
 ### 2. Database Integration Based Inventory Management
 
-- Employs SQLite as a lightweight, embedded database to persist inventory data.
-- Encapsulates database operations within a dedicated `DatabaseHandler` module, providing SQL-based CRUD (Create, Read, Update, Delete) functionality.
-- Offers enhanced scalability, data integrity, and query capabilities compared to file-based storage.
-- Maintains the same Win32 API GUI, now backed by a robust database backend, suitable for real-world applications.
+- Uses SQLite as the backend database for persistent storage.
+- Encapsulates all SQL operations in a `DatabaseHandler` module.
+- Offers enhanced scalability, data integrity, and query capabilities.
+- Maintains the same Win32 API GUI, now powered by a robust database backend.
 
 ---
 
 ## Features
 
-- Object-Oriented Design with clear separation of concerns.
-- User-friendly Win32 API GUI with list views, input forms, and control buttons.
+- Object-oriented design for maintainability and extensibility.
+- User-friendly Win32 GUI with list view, input forms, and control buttons.
 - Two persistence options: file-based and SQLite database-based.
-- Unit testing implemented using Google Test framework.
-- Modular codebase facilitating easy extension and maintenance.
+- Comprehensive unit testing with Google Test.
+- Modular codebase and CMake-based build system.
 
 ---
 
@@ -39,21 +39,51 @@ This repository contains two distinct implementations of an inventory management
 
 ### Prerequisites
 
-- C++17 compatible compiler (GCC 9+ recommended or MSVC)
+- C++17 compatible compiler (GCC 9+ recommended, or MSVC)
 - CMake 3.10 or higher
-- Windows OS (for Win32 GUI)
+- Windows OS (for GUI)
 - SQLite3 (for database integration)
-- Google Test (for unit testing)
+- **Google Test** (for unit testing)
+
+---
+
+### Cloning Google Test
+
+To enable unit testing, clone the Google Test repository into your project root:
+
+```sh
+git clone https://github.com/google/googletest.git
+```
+
+This will create a `googletest/` directory.  
+The provided `CMakeLists.txt` is configured to automatically build and link Google Test from this folder.
+
+---
 
 ### Building the Project
 
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Choose your preferred implementation:
-   - For file handler version, build the `InventorySystem` target with file I/O source files.
-   - For database integration, include `DatabaseHandler.cpp` and `sqlite3.c` in the build.
-4. Use CMake to configure and build the project.
-5. Run the executable to launch the GUI.
+1. Clone this repository.
+2. (Optional) Clone Google Test as shown above.
+3. Open a terminal (preferably MSYS2 MinGW UCRT64 shell for GCC/MinGW users).
+4. Run:
+   ```sh
+   mkdir build
+   cd build
+   cmake .. -G "MinGW Makefiles"
+   cmake --build .
+   ```
+5. Run the application:
+   ```sh
+   ./InventorySystem.exe
+   ```
+6. Run unit tests:
+   ```sh
+   ./runTests.exe
+   ```
+   or
+   ```sh
+   ctest
+   ```
 
 ---
 
@@ -79,6 +109,8 @@ InventoryManagementSystem/
 │   ├── test_item.cpp
 │   ├── test_inventory.cpp
 │   ├── test_database.cpp
+├── googletest/
+│   └── ... (cloned Google Test sources)
 ├── data/
 │   ├── inventory.txt
 │   ├── inventory.db
@@ -92,7 +124,7 @@ InventoryManagementSystem/
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!  
-Feel free to fork the repository and submit pull requests.
+Fork the repository and submit a pull request.
 
 ---
 
@@ -101,4 +133,5 @@ Feel free to fork the repository and submit pull requests.
 This project is licensed under the MIT License.
 
 ---
+
 
