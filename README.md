@@ -1,6 +1,3 @@
-Here is a professional GitHub repository description tailored for your Inventory Management System project, clearly highlighting the two parts: one using file handling and the other using database integration.
-
----
 
 # Inventory Management System
 
